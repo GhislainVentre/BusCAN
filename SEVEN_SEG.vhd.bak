@@ -1,0 +1,30 @@
+library IEEE;
+  use IEEE.std_logic_1164.all;
+  use IEEE.numeric_std.all;
+
+Entity SEVEN_SEG is
+  port ( data   : in  std_logic_vector(3 downto 0);                   
+         Segout : out std_logic_vector(0 to 6));
+end entity;
+
+Architecture COMB of SEVEN_SEG is
+begin
+
+process(Data)
+begin
+case Data is
+	when "0000" => Segout <= "0000001";
+	when "0001" => Segout <= "1001111";
+	when "0010" => Segout <= "0010010";
+	when "0011" => Segout <= "0000110";
+	when "0100" => Segout <= "1001100";
+	when "0101" => Segout <= "0100100";
+	when "0110" => Segout <= "0100000";
+	when "0111" => Segout <= "0001111";
+	when "1000" => Segout <= "0000000";
+	when "1001" => Segout <= "0000100";
+	when others => Segout <= "1111111";
+end case;
+end process;
+end architecture;
+
